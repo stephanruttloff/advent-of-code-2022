@@ -12,4 +12,7 @@ Day03.PrintResult();
 Console.WriteLine("Day04:");
 Day04.PrintResult();
 
+Console.WriteLine("Day05:");
+Day05.PrintResult();
+
 Console.ReadKey();
