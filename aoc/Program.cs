@@ -17,5 +17,7 @@ Day05.PrintResult();
 
 Console.WriteLine("Day06.1:");
 Console.WriteLine($"Location: {Day06.SolvePart1(null)}");
+Console.WriteLine("Day06.2:");
+Console.WriteLine($"Location: {Day06.SolvePart2(null)}");
 
 Console.ReadKey();
