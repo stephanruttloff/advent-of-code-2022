@@ -11,6 +11,11 @@
   <ItemGroup>
     <None Remove="res\" />
     <None Remove="res\day01.txt" />
+    <None Remove="Tests\obj\Tests.csproj.nuget.g.props" />
+    <None Remove="Tests\obj\Tests.csproj.nuget.g.targets" />
+    <None Remove="Tests\obj\project.assets.json" />
+    <None Remove="Tests\obj\project.nuget.cache" />
+    <None Remove="Tests\obj\Tests.csproj.nuget.dgspec.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
@@ -33,5 +38,12 @@
     <None Update="res\day05.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="res\day06.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Tests\UnitTest1.cs" />
+    <Compile Remove="Tests\Usings.cs" />
   </ItemGroup>
 </Project>
