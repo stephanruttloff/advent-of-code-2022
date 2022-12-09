@@ -21,6 +21,8 @@ Console.WriteLine("Day06.2:");
 Console.WriteLine($"Location: {Day06.SolvePart2(null)}");
 
 Console.WriteLine("Day07.1:");
-Console.WriteLine($"Location: {Day07.SolvePart1(null)}");
+Console.WriteLine($"Size: {Day07.SolvePart1(null)}");
+Console.WriteLine("Day07.2:");
+Console.WriteLine($"Size: {Day07.SolvePart2(null)}");
 
 Console.ReadKey();

@@ -10,6 +10,34 @@ namespace advent_of_code_2022
             var lines = inputOverride?.Split(Environment.NewLine)
                 ?? File.ReadAllLines("res/day07.txt");
 
+            return GetDirSize(lines)
+                .Values
+                .Where(x => x <= 100000)
+                .Sum();
+        }
+
+        public static int SolvePart2(string? inputOverride = null)
+        {
+            const int totalSpace = 70000000;
+            const int required = 30000000;
+
+            var lines = inputOverride?.Split(Environment.NewLine)
+                ?? File.ReadAllLines("res/day07.txt");
+
+            var dirSize = GetDirSize(lines);
+            var usedSpace = dirSize["/"];
+            var freeSpace = totalSpace - usedSpace;
+            var delta = required - freeSpace;
+
+            return dirSize
+                .Values
+                .Where(size => size >= delta)
+                .Order()
+                .First();
+        }
+
+        private static Dictionary<string, int> GetDirSize(IEnumerable<string> lines)
+        {
             const string cd = @"\$ cd (\w+)";
             const string cdUp = @"\$ cd \.\.";
             const string file = @"^(\d+) (.*)";
@@ -45,15 +73,7 @@ namespace advent_of_code_2022
                 }
             }
 
-            return dirSize
-                .Values
-                .Where(x => x <= 100000)
-                .Sum();
+            return dirSize;
         }
-
-        /*public static int SolvePart2(string? inputOverride = null)
-        {
-            
-        }*/
     }
 }
