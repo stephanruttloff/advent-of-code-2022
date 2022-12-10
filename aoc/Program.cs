@@ -26,6 +26,8 @@ Console.WriteLine("Day07.2:");
 Console.WriteLine($"Size: {Day07.SolvePart2(null)}");
 
 Console.WriteLine("Day08.1:");
-Console.WriteLine($"Trees: {Day08.SolvePart1(null)}");
+Console.WriteLine($"Trees: {Day08.SolvePart1()}");
+Console.WriteLine("Day08.2:");
+Console.WriteLine($"Highest score: {Day08.SolvePart2()}");
 
 Console.ReadKey();

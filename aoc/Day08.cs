@@ -49,7 +49,37 @@
 
         public static int SolvePart2(string? inputOverride = null)
         {
-            throw new NotImplementedException();
+            var layout = inputOverride?.Split(Environment.NewLine)
+                ?? File.ReadAllLines("res/day08.txt");
+            var grid = layout.Select(
+                line => line
+                    .ToCharArray()
+                    .Select(height => int.Parse(height.ToString())).ToArray())
+                    .ToArray();
+
+            var highestScore = 0;
+
+            for (var y = 0; y < grid.Length; y++)
+            {
+                for (var x = 0; x < grid[y].Length; x++)
+                {
+                    var height = grid[y][x];
+
+                    var top = grid.Take(y).Reverse().TakeWhile(row => row[x] < height).Count();
+                    var bottom = grid.Skip(y + 1).TakeWhile(row => row[x] < height).Count();
+                    var left = grid[y].Take(x).Reverse().TakeWhile(tree => tree < height).Count();
+                    var right = grid[y].Skip(x + 1).TakeWhile(tree => tree < height).Count();
+
+                    if (grid.Take(y).Count() > top) top++;
+                    if (grid.Skip(y + 1).Count() > bottom) bottom++;
+                    if (grid[y].Take(x).Count() > left) left++;
+                    if (grid[y].Skip(x + 1).Count() > right) right++;
+
+                    highestScore = Math.Max(highestScore, top * bottom * left * right);
+                }
+            }
+
+            return highestScore;
         }
     }
 }
